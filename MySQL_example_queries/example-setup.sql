@@ -30,7 +30,6 @@ ALTER TABLE `Boats2` DISABLE KEYS;
 INSERT INTO `Boats2` VALUES (103,'Clipper','green'),(104,'Marine','red'),(105,'InterClipper','blue'),(106,'InterMarine','red');
 ALTER TABLE `Boats2` ENABLE KEYS;
 
-
 -- `Reserves` table structure
 DROP TABLE IF EXISTS `Reserves`;
 CREATE TABLE `Reserves` (
@@ -39,12 +38,10 @@ CREATE TABLE `Reserves` (
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 -- `Reserves` data dump
 ALTER TABLE `Reserves` DISABLE KEYS;
 INSERT INTO `Reserves` VALUES (22,101,'1998-10-10'),(22,102,'1998-10-10'),(22,103,'1998-10-08'),(22,104,'1998-10-07'),(31,102,'1998-11-10'),(31,103,'1998-11-06'),(31,104,'1998-11-12'),(64,101,'1998-09-05'),(64,102,'1998-09-08'),(74,103,'1998-09-08'),(NULL,103,'1998-09-09'),(1,NULL,'2001-01-11'),(1,NULL,'2002-02-02');
 ALTER TABLE `Reserves` ENABLE KEYS;
-
 
 -- `Reserves2` table structure
 DROP TABLE IF EXISTS `Reserves2`;
@@ -53,7 +50,6 @@ CREATE TABLE `Reserves2` (
   `bid` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- `Reserves2` data dump
 ALTER TABLE `Reserves2` DISABLE KEYS;
@@ -70,12 +66,10 @@ CREATE TABLE `Sailors` (
   PRIMARY KEY (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 -- `Sailors` data dump
 ALTER TABLE `Sailors` DISABLE KEYS;
 INSERT INTO `Sailors` VALUES (22,'Dustin',7,45.0),(29,'Brutus',1,33.0),(31,'Lubber',8,55.5),(32,'Andy',8,25.5),(58,'Rusty',10,35.0),(64,'Horatio',7,35.0),(71,'Zorba',10,16.0),(74,'Horatio',9,35.0),(85,'Art',4,25.5),(95,'Bob',3,63.5),(101,'Joan',3,NULL),(107,'Johannes',NULL,35.0);
 ALTER TABLE `Sailors` ENABLE KEYS;
-
 
 -- `Sailors2` table structure
 DROP TABLE IF EXISTS `Sailors2`;
@@ -86,7 +80,6 @@ CREATE TABLE `Sailors2` (
   `age` decimal(5,1) DEFAULT NULL,
   PRIMARY KEY (`sid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- `Sailors2` data dump
 ALTER TABLE `Sailors2` DISABLE KEYS;

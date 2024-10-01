@@ -4,7 +4,8 @@ This guide was originally meant to be used for DATA 220P at UC Irvine in Fall 20
      - [MySQL Server Setup Wizard](#mysql-server-setup)
      - [MySQL Configurator Wizard](#mysql-configurator-setup)
 - [MySQL Workbench](#mysql-workbench)
-     - [MySQL Workbench Setup Wizard](mysql-workbench-setup-wizard)
+     - [MySQL Workbench Setup Wizard](#mysql-workbench-setup-wizard)
+- [Testing MySQL Installations](#testing-mysql-installations)
 
 ## MySQL Community Server
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
@@ -83,3 +84,121 @@ Now MySQL Workbench is downloaded on your computer! Congratulations; everything 
 
 ## Testing MySQL Installations
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+We are now ready to use MySQL Workbench and connect it to MySQL Server. When you open MySQL Workbench, you will see a screen similar to this one:
+![MySQL Workbench Opening Screen](Images/MySQL_Workbench_Open.png)
+For me, I already had the Local instance of MySQL90 showing up at the bottom. I don't know if this is the case for everyone, but the MySQL documentation is pretty good (I think). It can be found at [https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-new.html](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-new.html).
+
+In any case, once you have connected to your instance, click on it. If you downloaded MySQL Community Server v9.0.1 and MySQL Workbench v8.0.38 like me, you will see this warning pop up:
+![MySQL Workbench Warning](Images/MySQL_Workbench_Connection_Warning.png)
+This warning essentially says MySQL Server v8.4 and above may have increased functionalities that MySQL Workbench 8.0 is not compatible with yet. Click Continue Anyway (and if you want, you can have it not show the warning anymore by checking Don't show this message anymore).
+
+You will now see a blank script. I saved mine and named it `example-setup.sql` in a folder that I know the location of.
+![MySQL Workbench example-setup.sql](Images/MySQL_Workbench_example_setup.png)
+
+Copy and paste the following code into your sql file (the text can also be found in MySQL_example_queries/example-setup.sql):
+```
+-- beginning of script
+CREATE DATABASE IF NOT EXISTS `data220p` DEFAULT CHARACTER SET latin1;
+USE `data220p`;
+
+-- `Boats` table structure
+DROP TABLE IF EXISTS `Boats`;
+CREATE TABLE `Boats` (
+`bid` int(11) NOT NULL,
+`bname` varchar(45) DEFAULT NULL,
+`color` varchar(15) DEFAULT NULL,
+PRIMARY KEY (`bid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- `Boats` data dump
+ALTER TABLE `Boats` DISABLE KEYS;
+INSERT INTO `Boats` VALUES (101,'Interlake','blue'),(102,'Interlake','red'),(103,'Clipper','green'),(104,'Marine','red');
+ALTER TABLE `Boats` ENABLE KEYS;
+
+-- `Boats2` table structure
+DROP TABLE IF EXISTS `Boats2`;
+CREATE TABLE `Boats2` (
+  `bid` int(11) NOT NULL,
+  `bname` varchar(45) DEFAULT NULL,
+  `color` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`bid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- `Boats2` data dump
+ALTER TABLE `Boats2` DISABLE KEYS;
+INSERT INTO `Boats2` VALUES (103,'Clipper','green'),(104,'Marine','red'),(105,'InterClipper','blue'),(106,'InterMarine','red');
+ALTER TABLE `Boats2` ENABLE KEYS;
+
+-- `Reserves` table structure
+DROP TABLE IF EXISTS `Reserves`;
+CREATE TABLE `Reserves` (
+  `sid` int(11) DEFAULT NULL,
+  `bid` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- `Reserves` data dump
+ALTER TABLE `Reserves` DISABLE KEYS;
+INSERT INTO `Reserves` VALUES (22,101,'1998-10-10'),(22,102,'1998-10-10'),(22,103,'1998-10-08'),(22,104,'1998-10-07'),(31,102,'1998-11-10'),(31,103,'1998-11-06'),(31,104,'1998-11-12'),(64,101,'1998-09-05'),(64,102,'1998-09-08'),(74,103,'1998-09-08'),(NULL,103,'1998-09-09'),(1,NULL,'2001-01-11'),(1,NULL,'2002-02-02');
+ALTER TABLE `Reserves` ENABLE KEYS;
+
+-- `Reserves2` table structure
+DROP TABLE IF EXISTS `Reserves2`;
+CREATE TABLE `Reserves2` (
+  `sid` int(11) DEFAULT NULL,
+  `bid` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- `Reserves2` data dump
+ALTER TABLE `Reserves2` DISABLE KEYS;
+INSERT INTO `Reserves2` VALUES (22,103,'1998-10-10'),(22,104,'1998-10-10'),(22,105,'1998-10-08'),(22,106,'1998-10-07'),(31,103,'1998-11-10'),(31,104,'1998-11-06'),(31,105,'1998-11-12'),(64,104,'1998-09-05'),(64,105,'1998-09-08'),(74,105,'1998-09-08'),(NULL,104,'1998-09-09'),(108,NULL,'2001-01-11'),(108,NULL,'2002-02-02');
+ALTER TABLE `Reserves2` ENABLE KEYS;
+
+-- `Sailors` table structure
+DROP TABLE IF EXISTS `Sailors`;
+CREATE TABLE `Sailors` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(45) NOT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `age` decimal(5,1) DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- `Sailors` data dump
+ALTER TABLE `Sailors` DISABLE KEYS;
+INSERT INTO `Sailors` VALUES (22,'Dustin',7,45.0),(29,'Brutus',1,33.0),(31,'Lubber',8,55.5),(32,'Andy',8,25.5),(58,'Rusty',10,35.0),(64,'Horatio',7,35.0),(71,'Zorba',10,16.0),(74,'Horatio',9,35.0),(85,'Art',4,25.5),(95,'Bob',3,63.5),(101,'Joan',3,NULL),(107,'Johannes',NULL,35.0);
+ALTER TABLE `Sailors` ENABLE KEYS;
+
+-- `Sailors2` table structure
+DROP TABLE IF EXISTS `Sailors2`;
+CREATE TABLE `Sailors2` (
+  `sid` int(11) NOT NULL,
+  `sname` varchar(45) NOT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `age` decimal(5,1) DEFAULT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- `Sailors2` data dump
+ALTER TABLE `Sailors2` DISABLE KEYS;
+INSERT INTO `Sailors2` VALUES (22,'Dustin',7,45.0),(31,'Lubber',8,55.5),(64,'Horatio',7,35.0),(71,'Zorba',10,16.0),(74,'Horatio',9,35.0),(85,'Art',4,25.5),(95,'Bob',3,63.5),(101,'Joan',3,NULL),(107,'Johannes',NULL,35.0),(108,'Sandy',NULL,36.0),(109,'James',5,38.0);
+ALTER TABLE `Sailors2` ENABLE KEYS;
+-- The end of the script
+```
+
+Once this is copied and pasted (and you should read it a little to get a good vibe of how to do certain things in SQL), click on the little lightning icon near the top to execute the query.
+![Run the code](Images/MySQL_Workbench_example_run.png)
+
+To check if this has worked, first click on **Schemas** at the bottom of the *Navigator* tab on the left side, then click the refresh button next at the right of **SCHEMAS**.
+![Did it work?](Images/MySQL_Workbench_example_ran.png)
+
+If it worked, you should see a new schema titled **data220p** with some Tables, Views, Stored Procedures, and Functions. Now to check if the table was populated properly, save your script and create a new query with CTRL+T or File > New Query Tab. I saved mine in a folder that I know the location of and called it `example-check.sql`. Type in the following instruction to the query (also found in MySQL_example_queries/example-check.sql):
+```
+SELECT * FROM data220p.Boats;
+```
+
+and click on the Execute button again. You should see a **Result Grid** with three columns - `bid`, `bname`, and `color` - as well as values within each column, corresponding to what we input in `example-setup.sql`.
+![Look at the table](Images/MySQL_Workbench_example_check.png)
+
+If what you see is the same as the image above, then congratulations! MySQL Server and Workbench have been downloaded properly, and you are ready for class.
