@@ -9,6 +9,7 @@ This guide was originally meant to be used for DATA 220P at UC Irvine in Fall 20
 
 ## MySQL Community Server
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
 The first step is to download the latest version of MySQL Community Server, found at [https://dev.mysql.com/downloads/mysql/](https://dev.mysql.com/downloads/mysql/). The version as of writing this guide is v9.0.1.
 
 ![MySQL Community Server 9.0.1 Innovation Installers: Windows MSI Installer is what you want](Images/MySQL_Server_Installers.png)
@@ -21,6 +22,7 @@ If you don't want to log in or sign up for an Oracle Web Account, just click the
 
 ### MySQL Server Setup
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
 You should see an application pop up called MySQL Server 9.0 Setup with a welcome page to the installation wizard. We will now go through the steps for this wizard.
 ![Installation Welcome](Images/Installation_wizard_welcome.png)
 1. Click Next. You should see an End-User License Agreement. Accept the terms and click Next.
@@ -33,6 +35,7 @@ You should see an application pop up called MySQL Server 9.0 Setup with a welcom
 
 # MySQL Configurator Setup
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
 Windows will ask if you want mysql_configurator.exe to have some permissions; allow it. Now you should see an application window titled MySQL Configurator with a welcome page for this configurator. We will now go through the steps for this configurator wizard.
 ![Configurator welcome](Images/Config_welcome.png)
 1. Click Next. You should see a screen titled **Data Directory**. This is where MySQL Server 9.0 and all its related data will be stored. The default is usually good enough, but if you have a specific directory that you want, choose that one instead. Click Next.
@@ -59,6 +62,7 @@ Congratulations! You are now done downloading MySQL Server. The next step to act
 
 ## MySQL Workbench
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
 The next step is to download the latest version of MySQL Workbench, found at [https://dev.mysql.com/downloads/workbench/](https://dev.mysql.com/downloads/workbench/). The version as of writing this guide is v8.0.38. Note that this version is **not fully compatible** with MySQL Server 9.0 (or even 8.4 and above) but this is not too important; we'll get into that later.
 ![MySQL Workbench Website](Images/Workbench_website.png)
 There are not many options here; just click Download on the MSI Installer. You will again see the screen that wants you to log in; you can just click **No thanks, just start my download** at the bottom.
@@ -67,6 +71,7 @@ Run the file. For me, it is called `mysql-workbench-community-8.0.38-winx64.msi`
 
 ### MySQL Workbench Setup Wizard
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
 You should see an application pop up called MySQL Workbench 8.0 CE - Setup Wizard (or something similar). We will go through the steps for this wizard.
 1. Click Next on the application welcome screen.
 ![Workbench Setup Welcome](Images/Workbench_welcome.png)
@@ -84,6 +89,7 @@ Now MySQL Workbench is downloaded on your computer! Congratulations; everything 
 
 ## Testing MySQL Installations
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
 We are now ready to use MySQL Workbench and connect it to MySQL Server. When you open MySQL Workbench, you will see a screen similar to this one:
 ![MySQL Workbench Opening Screen](Images/MySQL_Workbench_Open.png)
 For me, I already had the Local instance of MySQL90 showing up at the bottom. I don't know if this is the case for everyone, but the MySQL documentation is pretty good (I think). It can be found at [https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-new.html](https://dev.mysql.com/doc/workbench/en/wb-mysql-connections-new.html).
@@ -202,3 +208,5 @@ and click on the Execute button again. You should see a **Result Grid** with thr
 ![Look at the table](Images/MySQL_Workbench_example_check.png)
 
 If what you see is the same as the image above, then congratulations! MySQL Server and Workbench have been downloaded properly, and you are ready for class.
+
+[jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
