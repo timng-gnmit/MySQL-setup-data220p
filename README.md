@@ -1,5 +1,9 @@
 # How to set up MySQL Community Server and MySQL Workbench
-This guide was originally meant to be used for DATA 220P at UC Irvine in Fall 2024. Note that the author has only attempted installation for Windows 11, so any debugging on Mac OS or Linux will have to be done on your own.
+This guide was originally meant to be used for DATA 220P at UC Irvine in Fall 2024. Note that the author has only attempted installation for Windows 11, so any debugging on Mac OS or Linux will have to be done on your own. Feel free to jump around to the sections you need help with.
+- [MySQL Community Server](#mysql-community-server)
+     - [MySQL Server Setup Wizard](#mysql-server-setup)
+     - [MySQL Configurator Wizard](#mysql-configurator-setup)
+- [MySQL Workbench](#mysql-workbench)
 
 ## MySQL Community Server
 The first step is to download the latest version of MySQL Community Server, found at [https://dev.mysql.com/downloads/mysql/](https://dev.mysql.com/downloads/mysql/). The version as of writing this guide is v9.0.1.
@@ -12,6 +16,7 @@ From this list of installers, click Download next to the Windows MSI Installer. 
 
 If you don't want to log in or sign up for an Oracle Web Account, just click the **No thanks, just start my download.** button below the account buttons. This should download a file called `mysql-9.0.1-winx64.msi` to your computer. This is the installer for MySQL Community Server. Run this file.
 
+### MySQL Server Setup
 You should see an application pop up called MySQL Server 9.0 Setup with a welcome page to the installation wizard. We will now go through the steps for this wizard.
 ![Installation Welcome](Images/Installation_wizard_welcome.png)
 1. Click Next. You should see an End-User License Agreement. Accept the terms and click Next.
@@ -22,6 +27,7 @@ You should see an application pop up called MySQL Server 9.0 Setup with a welcom
 4. Once installation is complete, you should see a screen that says **Completed the MySQL Server Setup Wizard**. At the bottom of this screen, there is a check box that says **Run MySQL Configurator**. Make sure that this is checked, as this is the next step for the installation. Click Finish.
 ![Installation Finish](Images/Installation_finish.png)
 
+# MySQL Configurator Setup
 Windows will ask if you want mysql_configurator.exe to have some permissions; allow it. Now you should see an application window titled MySQL Configurator with a welcome page for this configurator. We will now go through the steps for this configurator wizard.
 ![Configurator welcome](Images/Config_welcome.png)
 1. Click Next. You should see a screen titled **Data Directory**. This is where MySQL Server 9.0 and all its related data will be stored. The default is usually good enough, but if you have a specific directory that you want, choose that one instead. Click Next.
@@ -43,3 +49,8 @@ Windows will ask if you want mysql_configurator.exe to have some permissions; al
 ![Configuration Apply Configuration Succeeded](Images/Config_Apply_Success.png)
 11. The final screen should say **Configuration Complete**. I didn't copy the log to keyboard because I wouldn't know what to do with that, so just click Finish.
 ![Configuration Complete](Images/Config_finish.png)
+
+Congratulations! You are now done downloading MySQL Server. The next step to actually use it is to download MySQL Workbench.
+
+## MySQL Workbench
+uh here's the link: [https://dev.mysql.com/downloads/workbench/](https://dev.mysql.com/downloads/workbench/)
