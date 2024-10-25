@@ -6,6 +6,7 @@ This guide was originally meant to be used for DATA 220P at UC Irvine in Fall 20
 - [MySQL Workbench](#mysql-workbench)
      - [MySQL Workbench Setup Wizard](#mysql-workbench-setup-wizard)
 - [Testing MySQL Installations](#testing-mysql-installations)
+- [Starting MySQL Server](#starting-mysql-server)
 
 ## MySQL Community Server
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
@@ -209,4 +210,19 @@ and click on the Execute button again. You should see a **Result Grid** with thr
 
 If what you see is the same as the image above, then congratulations! MySQL Server and Workbench have been downloaded properly, and you are ready for class.
 
+## Starting MySQL Server
+[jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
+
+Sometimes when you start MySQL Workbench, your server will not be running. If this is the case, you need to start it manually. As of MySQL Workbench Version 8.0 CE, you do **not** want to use the Menu option `Server > Startup/Shutdown > Start Server`. MySQL Workbench will stop responding.
+
+Instead, you want to hit `WIN` on your keyboard then search for `Services`. Scroll down until you see `MySQL90`. Right click on this, and click on the `Start` option.
+![Start the server](Images/Server_Startup.png)
+
+Your server should now be running. If you already have MySQL Workbench open, you will need to refresh to see if it is still connected. In the Administration - Server Status tab, click `Refresh` to connect to the localhost server.
+![Refresh the connection](Images/Server_Refresh.png)
+
+You should now be connected to the server. If you didn't have the Server Status tab open, go to the menu for `Server` and click the `Status` option.
+![Open Administrator Server Status options](Images/Server_Status.png)
+
+You can now follow the previous instruction to refresh the connection, and hopefully it will work.
 [jump to top](#how-to-set-up-mysql-community-server-and-mysql-workbench)
